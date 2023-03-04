@@ -9,6 +9,8 @@ import json
 
 class FishPondRegisterView(APIView):
     def post(self, request):
+        if not request.user.is_authenticated:
+            JsonResponse({'message': 'permission denied'}, status=status.HTTP_400_BAD_REQUEST)
         serializer = FishPondRegisterSerializer(
             data={'owner': request.user.id, 'location': request.data['location']})
         if serializer.is_valid():

@@ -105,3 +105,4 @@ class MakingResponseRecordSerializer(serializers.Serializer):
 class MakingResponseFishPondSerializer(serializers.Serializer):
     owner = serializers.CharField(max_length=20)
     location = serializers.CharField(max_length=20)
+    id=serializer.CharField(max_length=3)
