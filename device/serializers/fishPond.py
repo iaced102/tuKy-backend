@@ -26,15 +26,21 @@ class createRecordSerializer(serializers.ModelSerializer):
     temperature = serializers.CharField(max_length=10, required=False)
     ph = serializers.CharField(max_length=10, required=False)
     evaluation = serializers.CharField(max_length=30, required=False)
+    create_date = serializers.DateField()
 
     class Meta:
         model = Record
         fields = ['device', 'dissolved_oxygen',
-                  'humidity', 'temperature', 'ph', 'evaluation']
+                  'humidity', 'temperature', 'ph', 'evaluation','create_date']
 
     def create(self, aquaticInformation):
         return Record.objects.create(**aquaticInformation)
 
+class ReportSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Record
+        fields = ['device', 'dissolved_oxygen',
+                  'humidity', 'temperature', 'ph', 'evaluation','create_date']
 
 # class GetRecordSerializer:
 class FishPondSerializer(serializers.ModelSerializer):
@@ -105,4 +111,4 @@ class MakingResponseRecordSerializer(serializers.Serializer):
 class MakingResponseFishPondSerializer(serializers.Serializer):
     owner = serializers.CharField(max_length=20)
     location = serializers.CharField(max_length=20)
-    id=serializer.CharField(max_length=3)
+    id=serializers.CharField(max_length=3)

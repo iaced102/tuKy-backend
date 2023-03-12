@@ -15,7 +15,7 @@ class Device(models.Model):
 
 class Record(models.Model):
     device = models.ForeignKey(Device, on_delete=models.DO_NOTHING)
-    create_date = models.DateField(auto_now_add=True)
+    create_date = models.DateField()
     dissolved_oxygen = models.CharField(max_length=10)
     humidity = models.CharField(max_length=10)
     temperature = models.CharField(max_length=10)

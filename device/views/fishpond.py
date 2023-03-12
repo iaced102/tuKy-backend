@@ -29,7 +29,7 @@ class FishPondRecordValue(APIView):
             serializer.save()
             return JsonResponse({'message': 'Report successful!'}, status=status.HTTP_201_CREATED)
         else:
-            return JsonResponse({'message': serializer.errors}, status=status.HTTP_400_BAD_REQUEST)
+            return JsonResponse({'messageê': serializer.errors}, status=status.HTTP_400_BAD_REQUEST)
 
     def get(self, request):
         # lấy dữ liệu theo id thiết bị

@@ -18,12 +18,13 @@ Including another URLconf
 
 from django.urls import path, include
 from device.views.fishpond import FishPondRegisterView, FishPondRecordValue, GetFishPondByUser
-from device.views.device import DeviceRegisterView, AllDeviceOfFishPond
+from device.views.device import DeviceRegisterView, AllDeviceOfFishPond, GetDataForReport
 urlpatterns = [
     path('fishPond/register', FishPondRegisterView.as_view()),
     path('device/device-register', DeviceRegisterView.as_view()),
     path('device/fishpond-get-all-divce', AllDeviceOfFishPond.as_view()),
     path('device/aquatic-information', FishPondRecordValue.as_view()),
-    path('device/get-list-device-owner', GetFishPondByUser.as_view())
+    path('device/get-list-device-owner', GetFishPondByUser.as_view()),
+    path('device/get-report-data',GetDataForReport.as_view())
     # path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
 ]
